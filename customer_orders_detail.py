@@ -27,7 +27,7 @@ customer_label = ttk.Label(frame1, text="Select Customer:")
 customer_label.grid(row=0, column=0, padx=10)
 customer_picker = ttk.Combobox(frame1, state="readonly", width=30)
 customer_picker.grid(row=0, column=1)
-# Retrieve the customer names and phone numbers from the database
+# Retrieve the customer names and phone numbers from the   database
 cursor = conn.cursor()
 query = "SELECT c_name, c_phone_no FROM customer"
 cursor.execute(query)
