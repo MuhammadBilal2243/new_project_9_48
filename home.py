@@ -1,9 +1,10 @@
-
+import subprocess
 import tkinter as tk
 # Create a window
 root = tk.Tk()
 root.title("My Shop")
-
+def update_dollor():
+    subprocess.Popen(["python", "dolor_rate.py"])
 # Create a label for the title
 title_label = tk.Label(root, text="Welcome to My Shop!", font=("Arial", 20, "bold"), pady=20)
 title_label.pack()
@@ -34,7 +35,7 @@ update_product.pack(side="left", padx=10)
 product_expiry = tk.Button(buttons_frame, text="product_expiry", width=15, height=2)
 product_expiry.pack(side="left", padx=10)
 # Create a button for the update_dollor page
-update_dollor = tk.Button(buttons_frame, text="update_dollor", width=15, height=2)
+update_dollor = tk.Button(buttons_frame, text="update_dollor", width=15, height=2, command=update_dollor)
 update_dollor.pack(side="left", padx=10)
 
 # Create a frame for the status bar
