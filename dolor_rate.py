@@ -19,6 +19,7 @@ def update_rate(rate):
     cursor.execute(sql, val)
     conn.commit()
 
+
 # Define a function to fetch the rate value from the database
 def fetch_rate():
     cursor = conn.cursor()

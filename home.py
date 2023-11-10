@@ -5,6 +5,10 @@ root = tk.Tk()
 root.title("My Shop")
 def update_dollor():
     subprocess.Popen(["python", "dolor_rate.py"])
+def updateProduct():
+    subprocess.Popen(["python", "update_products.py"])
+def orders_datails():
+    subprocess.Popen(["python", "order_details.py"])
 # Create a label for the title
 title_label = tk.Label(root, text="Welcome to My Shop!", font=("Arial", 20, "bold"), pady=20)
 title_label.pack()
@@ -26,13 +30,13 @@ customers_button = tk.Button(buttons_frame, text="View Customers", width=15, hei
 customers_button.pack(side="left", padx=10)
 
 # Create a button for the settings page
-settings_button = tk.Button(buttons_frame, text="Settings", width=15, height=2)
-settings_button.pack(side="left", padx=10)
+orders_datails_button = tk.Button(buttons_frame, text="orders_datails by O_ID", width=25, height=2,command=orders_datails)
+orders_datails_button.pack(side="left", padx=10)
 # Create a button for the update_product page
-update_product = tk.Button(buttons_frame, text="update_product", width=15, height=2)
+update_product = tk.Button(buttons_frame, text="update_product", width=15, height=2,command=updateProduct)
 update_product.pack(side="left", padx=10)
 # Create a button for the expiry checking  page
-product_expiry = tk.Button(buttons_frame, text="product_expiry", width=15, height=2)
+product_expiry = tk.Button(buttons_frame, text="product_expiry", width=15, height=2,)
 product_expiry.pack(side="left", padx=10)
 # Create a button for the update_dollor page
 update_dollor = tk.Button(buttons_frame, text="update_dollor", width=15, height=2, command=update_dollor)
