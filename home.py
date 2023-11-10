@@ -1,6 +1,5 @@
 
 import tkinter as tk
-
 # Create a window
 root = tk.Tk()
 root.title("My Shop")
@@ -28,6 +27,15 @@ customers_button.pack(side="left", padx=10)
 # Create a button for the settings page
 settings_button = tk.Button(buttons_frame, text="Settings", width=15, height=2)
 settings_button.pack(side="left", padx=10)
+# Create a button for the update_product page
+update_product = tk.Button(buttons_frame, text="update_product", width=15, height=2)
+update_product.pack(side="left", padx=10)
+# Create a button for the expiry checking  page
+product_expiry = tk.Button(buttons_frame, text="product_expiry", width=15, height=2)
+product_expiry.pack(side="left", padx=10)
+# Create a button for the update_dollor page
+update_dollor = tk.Button(buttons_frame, text="update_dollor", width=15, height=2)
+update_dollor.pack(side="left", padx=10)
 
 # Create a frame for the status bar
 status_frame = tk.Frame(root, bg="gray")
