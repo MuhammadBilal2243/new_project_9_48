@@ -29,7 +29,7 @@ sales_button.pack(side="left", padx=10)
 customers_button = tk.Button(buttons_frame, text="View Customers", width=15, height=2)
 customers_button.pack(side="left", padx=10)
 
-# Create a button for the settings page
+# Create a button for the settings    page
 orders_datails_button = tk.Button(buttons_frame, text="orders_datails by O_ID", width=25, height=2,command=orders_datails)
 orders_datails_button.pack(side="left", padx=10)
 # Create a button for the update_product page
