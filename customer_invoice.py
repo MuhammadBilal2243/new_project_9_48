@@ -391,7 +391,6 @@ def print_invoice():
     # Create a label to display the paid amount
     paid_amount_label = tk.Label(invoice_window, text=f"Paid: PKR {paid_amount}")
     paid_amount_label.pack()
-
     # Create a label to display the remaining amount
     remaining_amount = float(total_pkr) - paid_amount
     remaining_amount_label = tk.Label(invoice_window, text=f"Remaining: PKR {remaining_amount}")
