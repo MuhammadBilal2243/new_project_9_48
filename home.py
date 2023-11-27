@@ -3,6 +3,10 @@ import tkinter as tk
 # Create a window
 root = tk.Tk()
 root.title("My Shop")
+
+def search_order_by_no():
+    subprocess.Popen(["python", "order_details.py"])
+
 def update_dollor():
     subprocess.Popen(["python", "dolor_rate.py"])
 def updateProduct():
@@ -41,6 +45,8 @@ product_expiry.pack(side="left", padx=10)
 # Create a button for the update_dollor page
 update_dollor = tk.Button(buttons_frame, text="update_dollor", width=15, height=2, command=update_dollor)
 update_dollor.pack(side="left", padx=10)
+search_order_by_no = tk.Button(buttons_frame, text="search_order_by_no", width=15, height=2, command=search_order_by_no)
+search_order_by_no.pack(side="left", padx=10)
 
 # Create a frame for the status bar
 status_frame = tk.Frame(root, bg="gray")
