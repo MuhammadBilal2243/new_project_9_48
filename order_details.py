@@ -110,7 +110,7 @@ def download_pdf():
         pdf_to_pic(order_no)
         messagebox.showinfo("download successful","your order no pdf and pic is downloaded to your persnal computer")
     except:
-        messagebox.showerror("error", "we dont have this order Number in our data base.input correct order no")
+        messagebox.showwarning("error", "we dont have this order Number in our data base.please input correct order no")
 
 pdf_button.config(command=download_pdf)
 def pdf_to_pic(order_no):

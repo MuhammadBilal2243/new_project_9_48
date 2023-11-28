@@ -6,7 +6,7 @@ from fpdf import FPDF
 
 # Create a global variable to store the database connection
 conn = None
-dolor=230
+
 # Create a global variable to store the customer ID
 c_id = None
 o_id=None
@@ -25,10 +25,23 @@ def connect_to_database():
         password="bilal123",
         database="testno10"
     )
+connect_to_database()
+def dollor_p():
+    cursor = conn.cursor()
+    sql = "SELECT rate FROM pkr WHERE id = 1"
+    cursor.execute(sql)
+    result = cursor.fetchone()
+    conn.commit()
+    cursor.close()
+    print(type(result))
+    return result[0]
+
+dolor = dollor_p()
 def close_database_connection():
     # Close the database connection
     if conn is not None:
         conn.close()
+
 def insert_customer(c_name, c_phone_no, c_address, c_company, c_email, c_cnic):
     # Create a cursor to execute queries
     cursor = conn.cursor()
@@ -42,6 +55,7 @@ def insert_customer(c_name, c_phone_no, c_address, c_company, c_email, c_cnic):
     cursor.close()
 
     return cursor.lastrowid
+
 def get_customer_id(c_name, c_phone_no):
     # Create a cursor to execute queries
     cursor = conn.cursor()

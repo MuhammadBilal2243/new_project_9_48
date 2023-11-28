@@ -4,6 +4,8 @@ import tkinter as tk
 root = tk.Tk()
 root.title("My Shop")
 
+def inventory_button():
+    subprocess.Popen(["python", "customer_invoice.py"])
 def search_order_by_no():
     subprocess.Popen(["python", "order_details.py"])
 
@@ -22,7 +24,7 @@ buttons_frame = tk.Frame(root)
 buttons_frame.pack(pady=20)
 
 # Create a button for the inventory page
-inventory_button = tk.Button(buttons_frame, text="View Inventory", width=15, height=2)
+inventory_button = tk.Button(buttons_frame, text="View Inventory", width=15, height=2,command=inventory_button)
 inventory_button.pack(side="left", padx=10)
 
 # Create a button for the sales page
