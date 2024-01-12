@@ -1,4 +1,5 @@
 import datetime
+import subprocess
 import tkinter as tk
 from tkinter import ttk, messagebox
 import mysql.connector
@@ -417,18 +418,24 @@ def update_sell_price(event):
     else:
         sell_price_label.config(text="")
 # Create a tkinter window
-bgcolor="#5C5C5C"
-bgcolor1="#636363"
+bgcolor="#FFFFFF"
+bgcolor1='#FFFFFF'
 window = tk.Tk()
-window.configure(bg=bgcolor1)
+window.configure(bg=bgcolor)
 window.title("Customer Entry",)
 
 # Connect to the database
 connect_to_database()
 # Create the customer frame to group the input fields
+def home():
+    subprocess.Popen(["python", "home.py"])
+    window.destroy()
 header_frame = tk.Frame(window, padx=10, pady=10, bg=bgcolor)
 header_frame.pack()
-tk.Label(header_frame, text="this my shop name heading :").grid(row=0, column=0)
+home_buttun = tk.Button(header_frame,text="back to Home ", padx=10, pady=10, bg=bgcolor,command=home)
+home_buttun.grid(row=0, column=0 )
+
+tk.Label(header_frame, text="this my shop name heading :",font=("Arial", 20, "bold")).grid(row=0, column=2,padx=203)
 
 # Create the customer frame to group the input fields
 customer_frame = tk.Frame(window, padx=10, pady=10, bg=bgcolor)
@@ -459,15 +466,15 @@ cnic_entry = tk.Entry(customer_frame,bg=bgcolor1)
 cnic_entry.grid(row=6, column=1)
 
 # Create a Submit button to insert the customer
-submit_btn = tk.Button(customer_frame, text="Submit",bg=bgcolor1, command=submit_customer)
+submit_btn = tk.Button(customer_frame, text="Submit",bg=bgcolor, command=submit_customer)
 submit_btn.grid(row=7, column=0)
 
 # Create a Clear button to clear the inputs
-clear_btn = tk.Button(customer_frame, text="Clear",bg=bgcolor1, command=clear_inputs)
+clear_btn = tk.Button(customer_frame, text="Clear",bg=bgcolor, command=clear_inputs)
 clear_btn.grid(row=7, column=1)
 
 # Create a label to display the c_id of the newly created customer
-c_id_label = tk.Label(window, text="",bg=bgcolor1)
+c_id_label = tk.Label(window, text="",bg=bgcolor)
 c_id_label.pack()
 
 # Load the product sell prices from the database
@@ -493,16 +500,16 @@ quantity_picker = ttk.Combobox(customer_frame, values=[1, 2, 3, 4, 5])
 quantity_picker.grid(row=0, column=5)
 
 # Create the add button
-add_btn = tk.Button(customer_frame, text="Add",bg=bgcolor1, command=add_item)
+add_btn = tk.Button(customer_frame, text="Add",bg=bgcolor, command=add_item)
 add_btn.grid(row=7, column=4)
 
 # Create the remove button
-remove_btn = tk.Button(customer_frame,bg=bgcolor1, text="Remove", command=remove_item)
+remove_btn = tk.Button(customer_frame,bg=bgcolor, text="Remove", command=remove_item)
 remove_btn.grid(row=7, column=5)
 
 #
 #Create the items treeview (product_name, p_id, sell_price, quantity, price_total_pkr)
-tree = ttk.Treeview(invoice_entries_frame, columns=["Product","p_id","sell_price", "Quantity", "Price (PKR)"],)
+tree = ttk.Treeview(invoice_entries_frame, columns=["Product","p_id","sell_price", "Quantity", "Price (PKR)"])
 tree.column("#0", width=0, stretch=tk.NO,)
 tree.column("Product", anchor=tk.W, width=200)
 tree.heading("Product", text="Product", anchor=tk.W)

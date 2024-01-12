@@ -1,7 +1,10 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 import mysql.connector
-
+import  subprocess
+def delete_button():
+    subprocess.Popen(["python", "delete_order.py"])
+    root.destroy()
 # Create a connection to the MySQL server
 conn = mysql.connector.connect(
     host="localhost",
@@ -27,6 +30,10 @@ customer_label = ttk.Label(frame1, text="Select Customer:")
 customer_label.grid(row=0, column=0, padx=10)
 customer_picker = ttk.Combobox(frame1, state="readonly", width=30)
 customer_picker.grid(row=0, column=1)
+Delete_button=ttk.Button(frame1, text="Delete order by name", width=30, command=delete_button)
+Delete_button.grid(row=0, column=2)
+Total_remaings = ttk.Label(frame1, text="Customer Total_remaings :")
+Total_remaings.grid(row=0, column=3, padx=10)
 # Retrieve the customer names and phone numbers from the   database
 cursor = conn.cursor()
 query = "SELECT c_name, c_phone_no FROM customer"
@@ -61,14 +68,16 @@ def show_orders(event):
     orders = cursor.fetchall()
     # Clear the existing orders in the Treeview
     order_tree.delete(*order_tree.get_children())
-
+    total_remaing_with_custumer=0
     # Add the orders for the selected customer to the Treeview
     for order in orders:
         # Calculate the remaining amount for this order
         remaining = order[3] - order[4]
+        total_remaing_with_custumer=total_remaing_with_custumer+remaining
         values = (*order, remaining)
         order_tree.insert("", "end", text="", values=values)
 # Bind the ComboBox to the function that retrieves and displays orders
+    Total_remaings.config(text=f"Total remaing {total_remaing_with_custumer}")
 customer_picker.bind("<<ComboboxSelected>>", show_orders)
 
 # Create a vertical scrollbar for the Treeview

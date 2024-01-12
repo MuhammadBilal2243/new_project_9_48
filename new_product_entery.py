@@ -1,6 +1,6 @@
 
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import mysql.connector
 
 # Create a tkinter window
@@ -141,7 +141,7 @@ def add_product():
         p_country_entry.delete(0, tk.END)
         # set the column widths
     except:
-        print("put product detail  corectly")
+        messagebox.showerror("Error", "put product detail  corectly")
 
 
 add_button = tk.Button(frame, text="Add New Product", command=add_product)
