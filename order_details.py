@@ -142,7 +142,7 @@ def pdf_to_pic(order_no):
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="bilal123",
+    password="bilal@123@",
     database="testno10"
 )
 window.mainloop()

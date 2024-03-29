@@ -7,8 +7,9 @@ from tkinter import ttk
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="bilal123",
-    database="testno10"
+    password="bilal@123@",
+    database="testno10",
+
 )
 
 # Define a function to update the rate value in the database

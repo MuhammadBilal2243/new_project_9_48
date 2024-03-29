@@ -23,7 +23,7 @@ def connect_to_database():
     conn = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="bilal123",
+        password="bilal@123@",
         database="testno10"
     )
 connect_to_database()

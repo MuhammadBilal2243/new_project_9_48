@@ -9,7 +9,7 @@ def delete_button():
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="bilal123",
+    password="bilal@123@",
     database="testno10"
 )
 # Create the tkinter window

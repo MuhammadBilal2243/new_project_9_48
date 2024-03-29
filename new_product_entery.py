@@ -37,12 +37,13 @@ product_treeview.pack()
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="bilal123",
+    password="bilal@123@",
     database="testno10"
 )
 
 # Function to load the product list into the treeview object
 def show():
+
     cursor = conn.cursor()
     query = "SELECT * FROM product ORDER BY p_name ASC"
     cursor.execute(query)

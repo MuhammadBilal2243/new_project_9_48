@@ -37,7 +37,7 @@ product_treeview.grid(row=0, column=0)
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="bilal123",
+    password="bilal@123@",
     database="testno10"
 )
 
